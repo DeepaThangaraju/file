@@ -1,6 +1,5 @@
 const { response } = require("express");
 const fs = require("fs");
-const quote = "Love is Great";
 var c = [];
 
 
