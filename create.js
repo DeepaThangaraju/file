@@ -4,8 +4,6 @@ var c = [];
 
 
 function getDateString() {
-
-
     const date = new Date();
     var currentTimeInSeconds = Math.floor(Date.now() / 1000);
     const year = date.getFullYear();
@@ -16,7 +14,10 @@ function getDateString() {
     var seconds = date.getSeconds();
     return `${year}-${month}-${day}-${hour}-${minutes}-${seconds}` //to create a file name with year-month-day-hour-minutes-seconds
 }
+
 var data = getDateString();
+
+
 const date = new Date();
 let time = date.getTime();
 const express = require("express");   //Express to build a server
@@ -27,13 +28,15 @@ fs.writeFile(`./files/${data}.txt`, `Date:${data}Time:${time}`, (err) => console
 
 fs.readFile(`./files/${data}.txt`, "utf-8", (err, data) => { //reading a file
     console.log(data);
-
     app.get("/", (request, response) => {
         response.send(data);
     });
     app.listen(PORT, () => console.log("App is started", PORT));
 }
 );
+
+
+
 const testFolder = './files';
 
 fs.readdir(testFolder, (err, files) => {
